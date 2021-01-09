@@ -14,8 +14,8 @@ public class AnimalService {
     private AnimalRepository animalRepository;
 
     public Animal save(Animal animal){
-        animal.setId(UUID.randomUUID().toString());
-        return animal;
+
+        return animalRepository.save(animal);
     }
 
 

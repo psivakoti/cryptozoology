@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CryptoZoologyController {
 
-    @Autowired
+
     private AnimalService animalService;
+
+    public CryptoZoologyController(AnimalService animalService){
+        this.animalService = animalService;
+    }
 
 
     @PostMapping("/api/animals")

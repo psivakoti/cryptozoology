@@ -1,33 +1,40 @@
 package com.learn.cryptozoology.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Animal {
 
     @Id
     @GeneratedValue
-    private String id;
+    private Integer id;
 
     private String name;
     private String type;
     private String mood;
-    private String habitat;
 
-    public Animal(String name, String type, String mood, String habitat) {
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Habitat habitat;
+
+    public Animal(){
+
+    }
+    public Animal(String name, String type, String mood) {
         this.name = name;
         this.type = type;
         this.mood = mood;
-        this.habitat = habitat;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -55,11 +62,11 @@ public class Animal {
         this.mood = mood;
     }
 
-    public String getHabitat() {
+    public Habitat getHabitat() {
         return habitat;
     }
 
-    public void setHabitat(String habitat) {
+    public void setHabitat(Habitat habitat) {
         this.habitat = habitat;
     }
 }

@@ -37,7 +37,11 @@ public class CryptoZoologyControllerTest {
         .contentType(MediaType.APPLICATION_JSON)
         .content(objectMapper.writeValueAsString(animal)))
         .andExpect(status().isCreated())
-        .andExpect(jsonPath("$.id").exists());
+        .andExpect(jsonPath("$.id").exists())
+        .andExpect(jsonPath("$.name").value("Elephant"))
+        .andExpect(jsonPath("$.type").value("Walking"))
+        .andExpect(jsonPath("$.mood").value("Unhappy"))
+        .andExpect(jsonPath("$.habitat").value("Forest"));
     }
 
 }

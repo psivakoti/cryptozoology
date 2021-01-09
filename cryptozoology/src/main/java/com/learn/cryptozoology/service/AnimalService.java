@@ -5,6 +5,8 @@ import com.learn.cryptozoology.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class AnimalService {
 
@@ -12,7 +14,7 @@ public class AnimalService {
     private AnimalRepository animalRepository;
 
     public Animal save(Animal animal){
-        animal.setId(10);
+        animal.setId(UUID.randomUUID().toString());
         return animal;
     }
 
